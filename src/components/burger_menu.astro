@@ -1,0 +1,50 @@
+---
+---
+                        <div class="navbar_mobile">
+                        <a href="#" class="right_nav_mobile">TALENT</a>
+                        <a href="#" class="left_nav_mobile">AT THE MOMENT</a>
+                        <a href="#" class="right_nav_mobile">ABOUT US</a>
+                        <a href="#" class="left_nav_mobile">CONTACT</a>
+                        </div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+    .navbar_mobile{
+    width: 100%;
+    height: 100%;
+    background-color: #1e1e1e;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; 
+    }
+a{
+    color: white;
+    text-decoration: none;
+    font-family: "Work Sans";
+font-size: 30px;
+}
+.navbar_mobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 7%;
+}
+.right_nav_mobile{
+    text-align: left;
+    border-bottom: 0.5px solid white;
+    width: 70%;
+    align-self: flex-end;
+    margin-bottom: 3%;
+}
+.left_nav_mobile{
+    border-top: 0.5px solid white;
+    text-align: right;
+    width: 70%;
+}
+a:hover{
+width: 85%;
+transition: 1s;
+}
+</style>
