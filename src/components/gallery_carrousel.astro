@@ -1,0 +1,22 @@
+---
+import GalleryCard from "./gallery_card.astro"
+---
+
+<div class="carousel">
+<GalleryCard/>
+<GalleryCard/>
+<GalleryCard/>
+<GalleryCard/>
+<GalleryCard/>
+</div>
+<style>
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: hidden;
+    min-width: 100%;
+    /* Allow items to wrap if they exceed container width */
+    flex-wrap: nowrap;
+  }
+</style>

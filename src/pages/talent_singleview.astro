@@ -2,7 +2,8 @@
 import BurgerMenu from "../components/burger_menu.astro"
 import Footer from "../components/footer.astro"
 import "../styles/generel.css";
-import TalentCarousel from "../components/talent_carousel.astro";
+import GalleryCard from "../components/gallery_card.astro";
+import GalleryCarrousel from "../components/gallery_carrousel.astro";
 ---
 
 <html lang="en">
@@ -14,7 +15,72 @@ import TalentCarousel from "../components/talent_carousel.astro";
 		<title>Astro</title>
 	</head>
 	<body>
+        <header>
 		<BurgerMenu/>
+        </header>
+        <main>
+        <div class="artist_grid">
+        <div class="side_bar">
+        <div>
+        <img class="cross" src="/imgs/cross.svg" alt="burger"/>
+        </div>
+        <div>
+        <p class="side_text">Info</p>
+        </div>
+        </div>
+        <div class="open_tab">
+        <GalleryCarrousel/>
+        </div>
+        </div>
+        </main>
+        <footer>
 		<Footer/>
+        </footer>
 	</body>
 </html>
+<style>
+    body{
+        margin: 0;
+    }
+    header{
+        border-bottom: 1px solid #1e1e1e;
+        padding-bottom: 10px;
+        position: fixed;
+        width: 100%;
+        margin: 0;
+        left: 0;
+        top: 0;
+        background-color: #F1EEE8;
+    }
+    footer{
+        border-top: 1px solid #1e1e1e;
+        padding-top: 10px;
+        position: fixed;
+        width: 100%;
+        margin: 0;/*skal tilføjes generel css*/
+        left: 0;
+        bottom: 0;
+        background-color: #F1EEE8;
+    }
+    .artist_grid{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        height: 100vh;
+    }
+    .side_bar{
+        border-right: 1px solid #1e1e1e;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cross{
+        max-width: 40px;
+    }
+    .open_tab{
+        padding-left: 20px;
+        padding-top: 100px;
+        overflow: scroll;
+    }
+</style>

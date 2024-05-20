@@ -86,7 +86,6 @@ body {
   margin: 20px;
   background-color: var(--baggrund);
 }
-
 /* desktop */
 @media (min-width: 800px) {
   body {
