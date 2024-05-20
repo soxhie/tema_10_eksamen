@@ -1,0 +1,95 @@
+/* FARVER */
+:root {
+  --sort: #1e1e1e;
+  --gray: #8a8a89;
+  --baggrund: #eae5db;
+}
+
+/* FONTE */
+/* regular */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap");
+/* bold */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
+
+/* mobile */
+h1 {
+  font-family: "Work Sans";
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--sort);
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-family: "Work Sans";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sort);
+}
+
+p {
+  font-family: "Work Sans";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--sort);
+}
+
+.p_small {
+  font-family: "Work Sans";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  color: var(--sort);
+}
+
+.read_more {
+  font-family: "Work Sans";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray);
+  line-height: 12px;
+}
+
+.read_more:hover {
+  text-decoration: underline;
+}
+
+/* desktop */
+@media (min-width: 800px) {
+  h1 {
+    font-size: 66px;
+    margin-bottom: 45px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .p_small {
+    font-size: 15px;
+  }
+
+  .read_more {
+    font-size: 15px;
+  }
+}
+
+/* MARGIN */
+
+/* mobile */
+body {
+  margin: 20px;
+  background-color: var(--baggrund);
+}
+
+/* desktop */
+@media (min-width: 800px) {
+  body {
+    margin: 35px;
+  }
+}
