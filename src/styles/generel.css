@@ -85,6 +85,7 @@ p {
 body {
   margin: 20px;
   background-color: var(--baggrund);
+  min-height: 400vh;
 }
 
 /* desktop */
