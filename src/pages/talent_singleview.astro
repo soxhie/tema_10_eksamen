@@ -40,7 +40,7 @@ import GalleryCarrousel from "../components/gallery_carrousel.astro";
 </html>
 <style>
     body{
-        margin: 0;
+        margin: 0;/*ændre i gen*/
     }
     header{
         border-bottom: 1px solid #1e1e1e;
@@ -77,10 +77,35 @@ import GalleryCarrousel from "../components/gallery_carrousel.astro";
     }
     .cross{
         max-width: 40px;
+        cursor: pointer;
+    }
+    .side_text{
+        cursor: pointer;
     }
     .open_tab{
         padding-left: 20px;
         padding-top: 100px;
+        padding-bottom: 150px;
         overflow: scroll;
     }
+
+/* ON CLICK - DET SOM ÆNDRER SIG* (INFO VIEW)*/
+.artist_grid.change{
+        grid-template-columns: 4fr 1fr;
+    }
+
 </style>
+<script>
+const cross = document.querySelector(".cross");
+const sidetext = document.querySelector(".side_text");
+const grid = document.querySelector(".artist_grid.change");
+
+cross.addEventListener("click", open);
+sidetext.addEventListener("click", open);
+
+function open() {
+  console.log("open");
+  menu.classList.toggle("hide");
+
+}
+</script>
