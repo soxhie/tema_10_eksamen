@@ -29,7 +29,9 @@ import GalleryCarrousel from "../components/gallery_carrousel.astro";
         </div>
         </div>
         <div class="open_tab">
+        <div class="gallery">
         <GalleryCarrousel/>
+        </div>
         </div>
         </div>
         </main>
@@ -92,20 +94,25 @@ import GalleryCarrousel from "../components/gallery_carrousel.astro";
 /* ON CLICK - DET SOM ÆNDRER SIG* (INFO VIEW)*/
 .artist_grid.change{
         grid-template-columns: 4fr 1fr;
+        transition: 1s;
     }
-
+.gallery.change{
+    display: none;
+}
 </style>
 <script>
 const cross = document.querySelector(".cross");
 const sidetext = document.querySelector(".side_text");
-const grid = document.querySelector(".artist_grid.change");
+const grid = document.querySelector(".artist_grid");
+const opentab = document.querySelector(".gallery");
 
 cross.addEventListener("click", open);
 sidetext.addEventListener("click", open);
 
 function open() {
   console.log("open");
-  menu.classList.toggle("hide");
+  grid.classList.toggle("change");
+opentab.classList.toggle("change");
 
 }
 </script>
