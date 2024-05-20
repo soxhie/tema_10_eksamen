@@ -31,7 +31,7 @@ p {
   font-family: "Work Sans";
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 5px;
   color: var(--sort);
 }
 
@@ -85,7 +85,6 @@ p {
 body {
   margin: 20px;
   background-color: var(--baggrund);
-  min-height: 400vh;
 }
 
 /* desktop */
