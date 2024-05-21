@@ -1,0 +1,27 @@
+---
+import TalentCard from "./talent_card.astro";
+---
+
+<div class="carousel">
+<TalentCard/>
+<TalentCard/>
+<TalentCard/>
+<TalentCard/>
+<TalentCard/>
+</div>
+<style>
+  .carousel {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    min-width: 100%;
+    /* Allow items to wrap if they exceed container width */
+    flex-wrap: nowrap;
+    margin-top: 40px;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+</style>

@@ -2,7 +2,7 @@
 ---
 <header>
 	<div class="header_mobile">
-			<p>logo</p>
+			<a href="index.html"><img class="logo" src="/imgs/logo.svg" alt="burger"/></a>
 			<img class="ikon_burger" src="/imgs/lines.svg" alt="burger"/>
     </div>
                         <div id="navbar_mobile">
@@ -23,7 +23,7 @@ display: none;
     height: 100%;
     background-color: #f1eee8;
     position: fixed; /* ligger over det andet */
-    z-index: 1; /* ligger over det andet */
+    z-index: 10; /* ligger over det andet */
     top: 0; /* starter fra toppen */
     left: 0; /* starter fra venstre */
     overflow-x: hidden; /* Ingen horizontal scroll */
@@ -66,13 +66,20 @@ transition: 1s;
 .header_mobile {
 	justify-content: space-between;
     align-items: center;
-	z-index: 10;
-    position: sticky;
     display: flex;
+     padding-left: 20px;
+    padding-right: 20px;
 }
 .ikon_burger{
-	max-width: 50px;
+	max-width: 40px;
+    z-index: 100;
 }
+.logo{
+    max-width: 55px;
+    z-index: 110;
+    position: relative;
+}
+
 </style>
 
 <script>
