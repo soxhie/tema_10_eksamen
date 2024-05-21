@@ -1,6 +1,7 @@
 ---
 import BurgerMenu from "../components/burger_menu.astro"
 import Footer from "../components/footer.astro"
+import IndexKarrusel from "../components/IndexKarrusel.astro"
 import "../styles/generel.css";
 
 ---
@@ -15,9 +16,59 @@ import "../styles/generel.css";
 	</head>
 	<body>
 		<BurgerMenu/>
+		<div class="index_layout">
 		<h2>ALPHA</h2>
 		<p class="p_small">Management & Artist Services</p>
-		<img src="#" alt="">
-<Footer/>
+		
+	
+		<img class="main_img" src="imgs/alga.png" alt="Main image">
+
+		<div class="index_imgtxt">
+			<!-- insert overskrift her via json -->
+			<p>01/ Spot</p>
+			<a href="atm_singleview.html" class="read_more">Read More</a>
+		</div>
+	</div>
+
+<IndexKarrusel/>
+
+		<Footer/>
 	</body>
 </html>
+
+<style>
+
+	*{
+		margin: 0;
+		box-sizing: border-box;
+	}
+	a{
+		text-decoration: none;
+	}
+
+	.index_imgtxt{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.index_layout{
+		display: flex;
+		flex-direction: column;
+		align-content: right;
+		width: 300px;
+		margin-left: auto;
+		/* fix senere, gør responsiv */
+	margin-right: 10px;
+		margin-bottom: 20%;
+		margin-top: 20px;
+	}
+
+	.main_img{
+		display: flex;
+		justify-content: right;
+		margin-top: 20px;
+	}
+
+</style>
