@@ -3,6 +3,18 @@ import BurgerMenu from "../components/burger_menu.astro"
 import Footer from "../components/footer.astro"
 import "../styles/generel.css";
 import GalleryCarrousel from "../components/gallery_carrousel.astro";
+const data = await fetch(
+  "https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+    },
+  }
+).then((res) => res.json());
+
+console.log(data);
 ---
 
 <html lang="en">
@@ -75,6 +87,7 @@ alga is the name of the collaboration between Alberte Silberbrandt and Gabriel B
         display: grid;
         grid-template-columns: 1fr 4fr;
         height: 100vh;
+        transition: 1s;
     }
     .side_bar{
         border-right: 1px solid #1e1e1e;
@@ -90,7 +103,7 @@ alga is the name of the collaboration between Alberte Silberbrandt and Gabriel B
         align-items: center;
     }
     .cross{
-        max-width: 40px;
+        max-width: 35px;
         cursor: pointer;
     }
     .side_text{
@@ -119,7 +132,7 @@ display: none;
 /*fjern gallery*/
 .gallery.change{
     display: none;
-    transition: 1s;
+    transition: 10s;
 }
 
 
@@ -143,14 +156,13 @@ display: none;
         align-items: center;
     }
     .cross_gallery.change{
-        width: 40px;
         cursor: pointer;
     }
     .side_text_gallery{
         cursor: pointer;
     }
     img.cross_gallery{
-        max-width: 40px;
+        max-width: 35px;
     }
 
 </style>
