@@ -20,8 +20,9 @@ import "../styles/generel.css";
 		<h2>ALPHA</h2>
 		<p class="p_small">Management & Artist Services</p>
 		
-	
+	<template id="index_main_img">
 		<img class="main_img" src="imgs/alga.png" alt="Main image">
+	</template>
 
 		<div class="index_imgtxt">
 			<!-- insert overskrift her via json -->
@@ -35,6 +36,26 @@ import "../styles/generel.css";
 		<Footer/>
 	</body>
 </html>
+
+<script>
+
+// definer hvor dataen kommer fra
+
+const supabaseURL = "https://qnmavaxwhjqqhjgjqurq.supabase.co";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0";
+
+  fetch(`${supabaseURL}/rest/v1/locations`, {
+  method: "GET",
+  headers: {
+    apikey: supabaseKey,
+  },
+})
+  .then((res) => res.json())
+  .then(showImgIds);
+
+
+</script>
 
 <style>
 

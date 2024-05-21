@@ -4,15 +4,15 @@ import "../styles/generel.css";
 ---
 <div class="small_imgs">
 <div class="karrusel">
-	<img src="imgs/alga_square.png" alt="">
-	<img src="imgs/alga_square.png" alt="">
-	<img src="imgs/alga_square.png" alt="">
-	<img src="imgs/alga_square.png" alt="">
-	<img src="imgs/alga_square.png" alt="">
-	<img src="imgs/alga_square.png" alt="">
-	<img src="imgs/alga_square.png" alt="">
-	<img src="imgs/alga_square.png" alt="">
-	<img src="imgs/alga_square.png" alt="">
+	<img id="1" src="imgs/alberte.png" alt="">
+	<img id="2" src="imgs/alga_1.png" alt="">
+	<img id="3" src="imgs/guldlokk.png" alt="">
+	<img id="4" src="imgs/alga_2.png" alt="">
+	<img id="5" src="imgs/gabriel.png" alt="">
+	<img id="6" src="imgs/alga_3.png" alt="">
+	<img id="7" src="imgs/alga.png" alt="">
+	<img id="8" src="imgs/alga_4.png" alt="">
+	
 	<!-- evt giv hvert lille bilelde et id tilsvarende dens id i supabase, derefter js if click ændre href til stort billede til tilsvarende id (spørg peter???) -->
 </div>
 </div>
@@ -39,8 +39,12 @@ import "../styles/generel.css";
 
 
 img{
-	width: 80px;
-	margin: 0 3px;
+	
+	margin: 0 3px;	
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+
 }
 
 </style>
