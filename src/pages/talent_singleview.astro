@@ -2,7 +2,6 @@
 import BurgerMenu from "../components/burger_menu.astro"
 import Footer from "../components/footer.astro"
 import "../styles/generel.css";
-import GalleryCard from "../components/gallery_card.astro";
 import GalleryCarrousel from "../components/gallery_carrousel.astro";
 ---
 
@@ -58,28 +57,19 @@ alga is the name of the collaboration between Alberte Silberbrandt and Gabriel B
 	</body>
 </html>
 <style>
-    body{
-        margin: 0;/*ændre i gen*/
-    }
     header{
-        border-bottom: 1px solid #1e1e1e;
-        padding-bottom: 10px;
-        position: fixed;
-        width: 100%;
-        margin: 0;
-        left: 0;
-        top: 0;
-        background-color: #F1EEE8;
+        z-index: 100;
     }
-    footer{
-        border-top: 1px solid #1e1e1e;
-        padding-top: 10px;
+    main{
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        overflow-y: hidden;
         position: fixed;
-        width: 100%;
-        margin: 0;/*skal tilføjes generel css*/
-        left: 0;
-        bottom: 0;
-        background-color: #F1EEE8;
+        top: 68px;
+        bottom: 20px;
+        left:0;
+        right: 0;
     }
     .artist_grid{
         display: grid;
@@ -88,7 +78,6 @@ alga is the name of the collaboration between Alberte Silberbrandt and Gabriel B
     }
     .side_bar{
         border-right: 1px solid #1e1e1e;
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -109,7 +98,7 @@ alga is the name of the collaboration between Alberte Silberbrandt and Gabriel B
     }
     .open_tab{
         padding-left: 20px;
-        padding-top: 100px;
+        padding-top: 20px;
         padding-bottom: 150px;
         overflow: scroll;
     }
