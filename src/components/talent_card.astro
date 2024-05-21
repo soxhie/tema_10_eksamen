@@ -1,10 +1,11 @@
 ---
+const { data, link } = Astro.props
 ---
-<a href="talent_singleview.html">
+<a href={link}>
 <div class="talent_card">
-   <img src="/imgs/kealin_grey.jpg" alt="artist"/> 
-   <h2>Kealin Grey</h2>
-   <p>Alternative Rock Electronic Indie Pop</p>
+   <img src={data.picture} alt="artist"/> 
+   <h2>{data.name}</h2>
+   <p>{data.genre}</p>
 </div>
 </a>
 <style>
