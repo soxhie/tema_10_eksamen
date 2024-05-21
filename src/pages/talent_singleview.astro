@@ -50,7 +50,11 @@ alga is the name of the collaboration between Alberte Silberbrandt and Gabriel B
                 </div>
             <div class="open_tab">
                 <div class="gallery">
-                    <GalleryCarrousel/>
+                     {
+      data.map((name) => {
+        return <GalleryCarrousel data={name} />;
+      })
+    }
                  </div>
                   <div class="cross_gallery_txt">
                         <div>
@@ -132,7 +136,6 @@ display: none;
 /*fjern gallery*/
 .gallery.change{
     display: none;
-    transition: 10s;
 }
 
 
