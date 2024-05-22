@@ -1,7 +1,6 @@
 ---
-import Skelet from "../../layout/skelet.astro"
-import GalleryCarrousel from "../../components/gallery_carrousel.astro";
-
+import GalleryCarrousel from "../components/gallery_carrousel.astro";
+import Skelet from "../layout/skelet.astro";
 export async function getStaticPaths() {
 const data = await fetch(
   "https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent",
@@ -25,7 +24,7 @@ const { talent } = Astro.props;
 console.log(talent)
 ---
 
-<Skelet title={talent.name}>
+<Skelet>
    <div class="artist_grid">
                 <div class="side_bar">
                     <div class="cross_info">
@@ -56,4 +55,4 @@ console.log(talent)
                     </div>
             </div>
         </div>
-</Skelet>
+    </Skelet>
