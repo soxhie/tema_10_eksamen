@@ -1,5 +1,4 @@
 ---
-import GalleryCarrousel from "../components/gallery_carrousel.astro";
 import Skelet from "../layout/skelet.astro";
 export async function getStaticPaths() {
 const data = await fetch(
@@ -25,7 +24,8 @@ console.log(talent)
 ---
 
 <Skelet>
-   <div class="artist_grid">
+        <main>
+            <div class="artist_grid">
                 <div class="side_bar">
                     <div class="cross_info">
                         <div>
@@ -44,6 +44,24 @@ console.log(talent)
                 </div>
             <div class="open_tab">
                 <div class="gallery">
+  <div class="carousel">
+               <div class="gallery_card">
+                    <img src={talent.gallery[0]} alt="artist"/> 
+                    <p class=".p_small">{talent.gallery_txt[0]}</p>
+                </div>
+                <div class="gallery_card">
+                    <img src={talent.gallery[1]} alt="artist"/> 
+                    <p class=".p_small">{talent.gallery_txt[1]}</p>
+                </div>
+                <div class="gallery_card">
+                    <img src={talent.gallery[2]} alt="artist"/> 
+                    <p class=".p_small">{talent.gallery_txt[2]}</p>
+                </div>
+                <div class="gallery_card">
+                    <img src={talent.gallery[3]} alt="artist"/> 
+                    <p class=".p_small">{talent.gallery_txt[3]}</p>
+                </div>
+            </div>
                  </div>
                   <div class="cross_gallery_txt">
                         <div>
@@ -55,4 +73,139 @@ console.log(talent)
                     </div>
             </div>
         </div>
-    </Skelet>
+</Skelet>
+<style>
+    .gallery img{
+        width: 270px;
+        height: auto;
+        object-fit: cover;
+    }
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: hidden;
+    min-width: 100%;
+    /* Allow items to wrap if they exceed container width */
+    flex-wrap: nowrap;
+ }
+    header{
+        z-index: 100;
+    }
+    main{
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        overflow-y: hidden;
+        position: fixed;
+        top: 68px;
+        bottom: 20px;
+        left:0;
+        right: 0;
+    }
+    .artist_grid{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        height: 100vh;
+        transition: 1s;
+    }
+    .side_bar{
+        border-right: 1px solid #1e1e1e;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cross_info{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cross{
+        max-width: 35px;
+        cursor: pointer;
+    }
+    .side_text{
+        cursor: pointer;
+    }
+    .open_tab{
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 150px;
+        overflow: scroll;
+    }
+.cross_gallery_txt{
+display: none;
+}
+.info{
+    display: none;
+}
+/* ON CLICK - DET SOM ÆNDRER SIG* (INFO VIEW)*/
+
+/*reverse grid*/
+.artist_grid.change{
+        grid-template-columns: 4fr 1fr;
+        transition: 1s;
+    }
+
+/*fjern gallery*/
+.gallery.change{
+    display: none;
+}
+
+
+/*fjern + og info*/
+.cross_info.change{
+    display: none;
+}
+
+    .open_tab.change{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        overflow: hidden;
+    }
+    .cross_gallery_txt.change{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cross_gallery.change{
+        cursor: pointer;
+    }
+    .side_text_gallery{
+        cursor: pointer;
+    }
+    img.cross_gallery{
+        max-width: 35px;
+    }
+
+</style>
+<script>
+const cross = document.querySelector(".cross");
+const sidetext = document.querySelector(".side_text");
+const grid = document.querySelector(".artist_grid");
+const gallery = document.querySelector(".gallery");
+const crossinfo = document.querySelector(".cross_info");
+const opentab = document.querySelector(".open_tab");
+const crossgallerytext = document.querySelector(".cross_gallery_txt");
+const crossgallery = document.querySelector(".cross_gallery");
+
+cross.addEventListener("click", open);
+sidetext.addEventListener("click", open);
+crossgallerytext.addEventListener("click", open);
+
+function open() {
+  console.log("open");
+  grid.classList.toggle("change");
+gallery.classList.toggle("change");
+crossinfo.classList.toggle("change");
+opentab.classList.toggle("change");
+crossgallerytext.classList.toggle("change");
+crossgallery.classList.toggle("change");
+}
+</script>

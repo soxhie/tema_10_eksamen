@@ -1,12 +1,32 @@
 ---
 import GalleryCard from "./gallery_card.astro"
-const { data} = Astro.props;
+export async function getStaticPaths() {
+const data = await fetch(
+  "https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+    },
+  }
+).then((response) => response.json());
+
+return data.map((talent) => {
+    return {
+        params: { slug: talent.slug },
+        props: { talent },
+    };
+});
+}
+const { talent } = Astro.props;
+console.log(talent)
 ---
 
 <div class="carousel">
   {
-    data.map((data) => {
-      return <GalleryCard data={data} link={"/artist/" + data.name} />;
+    data.map((talent) => {
+      return <GalleryCard data={talent} />;
     })
   }
 </div>
