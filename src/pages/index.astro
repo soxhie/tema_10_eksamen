@@ -21,7 +21,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     <div class="title_og_img">
       <div class="overskrift">
         <h2>ALPHA</h2>
-        <p class="p_small">Management & Artist Services</p>
+        <h3>Management & Artist Services</h3>
       </div>
 
       <div class="big_img_container">
@@ -30,10 +30,10 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     </div>
 
     <div class="all_txt">
-      <div class="imgtxt">
-        <p>{indexData[0].index_headline}</p>
+      <div class="imgtxt" class="p_small">
+        <h3>{indexData[0].index_headline}</h3>
       </div>
-      <a href="atm_singleview.html" class="read_more">Read More</a>
+      <a href="atm_singleview.html" class="read_more">Read More ></a>
     </div>
   </div>
 
@@ -52,7 +52,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
   function init() {
     let karruselImages = document.querySelectorAll(".karrusel img");
     let bigImage = document.querySelector(".big_img_container img");
-    let imgImageTitle = document.querySelector(".img_title");
+    let imgImageTitle = document.querySelector(".imgtxt");
     console.log("karruselImages", karruselImages);
 
     karruselImages.forEach((img) => {
@@ -126,6 +126,11 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    font-family: "Work Sans";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    color: var(--sort);
   }
 
   .index_grid {
