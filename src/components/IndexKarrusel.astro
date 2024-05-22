@@ -15,7 +15,9 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
   <div class="big_img_container">
     <img src={indexData[0].index_pictures} alt={indexData[0].index_headline} />
     <p class="img_title">{indexData[0].index_headline}</p>
+    <a href="atm_singleview.html" class="read_more">Read More</a>
   </div>
+
   <div class="karrusel">
     {
       indexData.map((data) => {

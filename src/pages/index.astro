@@ -2,9 +2,12 @@
 import BurgerMenu from "../components/burger_menu.astro";
 import Footer from "../components/footer.astro";
 import IndexKarrusel from "../components/IndexKarrusel.astro";
+import Skelet from "../layout/skelet.astro";
 import "../styles/generel.css";
 
-const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
+const { data, link } = Astro.props;
+
+const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
   method: "GET",
   headers: {
     apikey:
@@ -13,40 +16,99 @@ const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm",
 }).then((res) => res.json());
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <BurgerMenu />
-    <div class="index_layout">
-      <h2>ALPHA</h2>
-      <p class="p_small">Management & Artist Services</p>
+<Skelet>
+  <div class="index_grid">
+    <div class="title_og_img">
+      <div class="overskrift">
+        <h2>ALPHA</h2>
+        <p class="p_small">Management & Artist Services</p>
+      </div>
 
-      <template id="index_main_img">
-        <img class="main_img" src="imgs/alga.png" alt="Main image" />
-      </template>
-
-      <div class="index_imgtxt">
-        <!-- insert overskrift her via json -->
-        <p>{data.index_headline}</p>
-        <a href="atm_singleview.html" class="read_more">Read More</a>
+      <div class="big_img_container">
+        <img src={indexData[0].index_pictures} alt={indexData[0].index_headline} />
       </div>
     </div>
 
-    <IndexKarrusel />
+    <div class="all_txt">
+      <div class="imgtxt">
+        <p>{indexData[0].index_headline}</p>
+      </div>
+      <a href="atm_singleview.html" class="read_more">Read More</a>
+    </div>
+  </div>
 
-    <Footer />
-  </body>
-</html>
+  <div class="karrusel">
+    {
+      indexData.map((data) => {
+        return <img src={data.index_pictures} alt={data.index_headline} />;
+      })
+    }
+  </div>
+</Skelet>
 
-<script></script>
+<script>
+  window.addEventListener("DOMContentLoaded", init);
+
+  function init() {
+    let karruselImages = document.querySelectorAll(".karrusel img");
+    let bigImage = document.querySelector(".big_img_container img");
+    let imgImageTitle = document.querySelector(".img_title");
+    console.log("karruselImages", karruselImages);
+
+    karruselImages.forEach((img) => {
+      img.addEventListener("mousedown", onImageDown);
+    });
+
+    function onImageDown(event) {
+      console.log(event);
+      bigImage.src = event.target.src;
+      imgImageTitle.textContent = event.target.alt;
+    }
+  }
+</script>
 
 <style>
+  .big_img_container {
+    position: relative;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .title_og_img {
+    margin-left: auto;
+  }
+
+  .big_img_container img {
+    width: 100%;
+
+    width: 274px;
+    height: 393px;
+    object-fit: cover;
+    object-position: 25% 25%;
+  }
+
+  .karrusel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: scroll;
+    /* hides scrollbar */
+    scrollbar-width: none;
+  }
+  body {
+    margin: 0;
+  }
+
+  .karrusel img {
+    margin: 0 3px;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+  }
+
+  img {
+    object-fit: cover;
+  }
   * {
     margin: 0;
     box-sizing: border-box;
@@ -55,18 +117,22 @@ const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm",
     text-decoration: none;
   }
 
-  .index_imgtxt {
+  .overskrift {
+    margin-top: 10px;
+  }
+
+  .imgtxt {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
 
-  .index_layout {
+  .index_grid {
     display: flex;
     flex-direction: column;
-    align-content: right;
-    width: 300px;
+    align-content: end;
+    width: 274px;
     margin-left: auto;
     /* fix senere, gør responsiv */
     margin-right: 10px;
@@ -74,13 +140,9 @@ const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm",
     margin-top: 20px;
   }
 
-  .main_img {
+  .all_txt {
     display: flex;
-    justify-content: right;
-    margin-top: 20px;
-  }
-
-  header {
-    border-bottom: none;
+    justify-content: space-between;
+    margin-left: initial;
   }
 </style>

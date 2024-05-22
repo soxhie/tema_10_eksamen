@@ -20,6 +20,7 @@ h1 {
   font-weight: 500;
   color: var(--sort);
   margin-bottom: 15px;
+  margin: 20px;
 }
 
 h2 {
@@ -89,7 +90,6 @@ body {
   background-color: var(--baggrund);
 }
 main {
-  margin: 20px;
   margin-top: 100px;
 }
 header {
@@ -99,7 +99,6 @@ header {
   margin: 0;
   left: 0;
   top: 0;
-  background-color: #f1eee8;
 }
 footer {
   padding-top: 10px;
