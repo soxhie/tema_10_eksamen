@@ -1,13 +1,14 @@
 ---
 import GalleryCard from "./gallery_card.astro"
+const { data} = Astro.props;
 ---
 
 <div class="carousel">
-<GalleryCard/>
-<GalleryCard/>
-<GalleryCard/>
-<GalleryCard/>
-<GalleryCard/>
+  {
+    data.map((data) => {
+      return <GalleryCard data={data} link={"/artist/" + data.name} />;
+    })
+  }
 </div>
 <style>
   .carousel {
@@ -18,5 +19,15 @@ import GalleryCard from "./gallery_card.astro"
     min-width: 100%;
     /* Allow items to wrap if they exceed container width */
     flex-wrap: nowrap;
-  }
+ }
+     /*
+    <div class="carousel">
+<GalleryCard/>
+<GalleryCard/>
+<GalleryCard/>
+<GalleryCard/>
+<GalleryCard/>
+</div>
+
+*/ 
 </style>

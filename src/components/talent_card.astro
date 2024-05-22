@@ -5,7 +5,11 @@ const { data, link } = Astro.props
 <div class="talent_card">
    <img src={data.picture} alt="artist"/> 
    <h2>{data.name}</h2>
-   <p>{data.genre}</p>
+   <div class="genre">
+   <p>{data.genre[0]}</p>
+   <p>{data.genre[1]}</p>
+   <p>{data.genre[2]}</p>
+   </div>
 </div>
 </a>
 <style>
@@ -22,12 +26,15 @@ const { data, link } = Astro.props
     h2{
         font-weight: 600;
         line-height: 5px;
+        margin-bottom: 0;
     }
-    p{
+    .genre{
+        display: flex;
         line-height: 5px;
+        gap: 5px;
     }
     img:hover{
-object-position: 100% 0%; 
-transition: 5s;
+        object-position: 100% 0%; 
+        transition: 8s;
     }
 </style>

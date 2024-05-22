@@ -1,0 +1,58 @@
+---
+import GalleryCarrousel from "../components/gallery_carrousel.astro";
+import Skelet from "../layout/skelet.astro";
+export async function getStaticPaths() {
+const data = await fetch(
+  "https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+    },
+  }
+).then((response) => response.json());
+
+return data.map((talent) => {
+    return {
+        params: { slug: talent.slug },
+        props: { talent },
+    };
+});
+}
+const { talent } = Astro.props;
+console.log(talent)
+---
+
+<Skelet>
+   <div class="artist_grid">
+                <div class="side_bar">
+                    <div class="cross_info">
+                        <div>
+                            <img class="cross" src="/imgs/cross.svg" alt="burger"/>
+                        </div>
+                        <div>
+                            <p class="side_text">Info</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div>
+                        <h2>{talent.name}</h2>
+                        <p>{talent.about}</p>
+</div>
+                    </div>
+                </div>
+            <div class="open_tab">
+                <div class="gallery">
+                 </div>
+                  <div class="cross_gallery_txt">
+                        <div>
+                            <img class="cross_gallery" src="/imgs/cross.svg" alt="burger"/>
+                        </div>
+                        <div>
+                            <p class="side_text_gallery">Gallery</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </Skelet>
