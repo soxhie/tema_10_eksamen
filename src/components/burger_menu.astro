@@ -1,24 +1,26 @@
 ---
+
 ---
+
 <header>
-	<div class="header_mobile">
-			<a href="index.html"><img class="logo" src="/imgs/logo.svg" alt="burger"/></a>
-			<img class="ikon_burger" src="/imgs/lines.svg" alt="burger"/>
-    </div>
-                        <div id="navbar_mobile">
-                        <a href="talent.html" class="right_nav_mobile">TALENT</a>
-                        <a href="atm.html" class="left_nav_mobile">WHAT'S NEW?</a>
-                        <a href="about.html" class="right_nav_mobile">ABOUT</a>
-                        <a href="contact.html" class="left_nav_mobile">CONTACT</a>
-                        </div>
+  <div class="header_mobile">
+    <a href="index.html"><img class="logo" src="/imgs/logo.svg" alt="burger" /></a>
+    <img class="ikon_burger" src="/imgs/lines.svg" alt="burger" />
+  </div>
+  <div id="navbar_mobile">
+    <a href="talent.html" class="right_nav_mobile">TALENT</a>
+    <a href="atm.html" class="left_nav_mobile">WHAT'S NEW?</a>
+    <a href="about.html" class="right_nav_mobile">ABOUT</a>
+    <a href="contact.html" class="left_nav_mobile">CONTACT</a>
+  </div>
 </header>
 <style>
-/**** STYLING AF BURGER MENU *****/
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');/* importer font */
-#navbar_mobile{
-display: none;
-}
-#navbar_mobile.hide {
+  /**** STYLING AF BURGER MENU *****/
+  @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"); /* importer font */
+  #navbar_mobile {
+    display: none;
+  }
+  #navbar_mobile.hide {
     width: 100%;
     height: 100%;
     background-color: #f1eee8;
@@ -28,69 +30,67 @@ display: none;
     left: 0; /* starter fra venstre */
     overflow-x: hidden; /* Ingen horizontal scroll */
     transition: 0.5s; /* fader in */
-    }
-    /*tekst*/
-a{
+  }
+  /*tekst*/
+  a {
     color: #1e1e1e;
     text-decoration: none;
     font-family: "Work Sans";
-font-size: 30px;
-}
-/* lav flex row på menuen*/
-#navbar_mobile.hide{
+    font-size: 30px;
+  }
+  /* lav flex row på menuen*/
+  #navbar_mobile.hide {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 7%;
-}
-/*streger over og under + position af tekst*/
-.right_nav_mobile{
+  }
+  /*streger over og under + position af tekst*/
+  .right_nav_mobile {
     text-align: left;
     border-bottom: 0.5px solid #1e1e1e;
     width: 70%;
     align-self: flex-end;
     margin-bottom: 3%;
-}
-.left_nav_mobile{
+  }
+  .left_nav_mobile {
     border-top: 0.5px solid #1e1e1e;
     text-align: right;
     width: 70%;
-}
-/*hover-effekt*/
-a:hover{
-width: 85%;
-transition: 1s;
-}
+  }
+  /*hover-effekt*/
+  a:hover {
+    width: 85%;
+    transition: 1s;
+  }
 
-/**** STYLING AF HEADER *****/
-.header_mobile {
-	justify-content: space-between;
+  /**** STYLING AF HEADER *****/
+  .header_mobile {
+    justify-content: space-between;
     align-items: center;
     display: flex;
-     padding-left: 20px;
+    padding-left: 20px;
     padding-right: 20px;
-}
-.ikon_burger{
-	max-width: 40px;
+  }
+  .ikon_burger {
+    max-width: 40px;
     z-index: 100;
-}
-.logo{
+  }
+  .logo {
     max-width: 55px;
     z-index: 110;
     position: relative;
-}
-
+  }
 </style>
 
 <script>
-const burger = document.querySelector(".header_mobile .ikon_burger");
-const menu = document.querySelector("#navbar_mobile");
+  const burger = document.querySelector(".header_mobile .ikon_burger");
+  const menu = document.querySelector("#navbar_mobile");
 
-burger.addEventListener("click", burgermenu);
+  burger.addEventListener("click", burgermenu);
 
-function burgermenu() {
-  console.log("burger");
-  menu.classList.toggle("hide");
-
-}
+  function burgermenu() {
+    console.log("burger");
+    menu.classList.toggle("hide");
+  }
 </script>
