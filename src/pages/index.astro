@@ -1,95 +1,82 @@
 ---
-import BurgerMenu from "../components/burger_menu.astro"
-import Footer from "../components/footer.astro"
-import IndexKarrusel from "../components/IndexKarrusel.astro"
+import BurgerMenu from "../components/burger_menu.astro";
+import Footer from "../components/footer.astro";
+import IndexKarrusel from "../components/IndexKarrusel.astro";
 import "../styles/generel.css";
 
+const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
+  method: "GET",
+  headers: {
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+  },
+}).then((res) => res.json());
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<BurgerMenu/>
-		<div class="index_layout">
-		<h2>ALPHA</h2>
-		<p class="p_small">Management & Artist Services</p>
-		
-	<template id="index_main_img">
-		<img class="main_img" src="imgs/alga.png" alt="Main image">
-	</template>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <BurgerMenu />
+    <div class="index_layout">
+      <h2>ALPHA</h2>
+      <p class="p_small">Management & Artist Services</p>
 
-		<div class="index_imgtxt">
-			<!-- insert overskrift her via json -->
-			<p>01/ Spot</p>
-			<a href="atm_singleview.html" class="read_more">Read More</a>
-		</div>
-	</div>
+      <template id="index_main_img">
+        <img class="main_img" src="imgs/alga.png" alt="Main image" />
+      </template>
 
-<IndexKarrusel/>
+      <div class="index_imgtxt">
+        <!-- insert overskrift her via json -->
+        <p>{data.index_headline}</p>
+        <a href="atm_singleview.html" class="read_more">Read More</a>
+      </div>
+    </div>
 
-		<Footer/>
-	</body>
+    <IndexKarrusel />
+
+    <Footer />
+  </body>
 </html>
 
-<script>
-
-// definer hvor dataen kommer fra
-
-const supabaseURL = "https://qnmavaxwhjqqhjgjqurq.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0";
-
-  fetch(`${supabaseURL}/rest/v1/locations`, {
-  method: "GET",
-  headers: {
-    apikey: supabaseKey,
-  },
-})
-  .then((res) => res.json())
-  .then(showImgIds);
-
-
-</script>
+<script></script>
 
 <style>
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+  }
 
-	*{
-		margin: 0;
-		box-sizing: border-box;
-	}
-	a{
-		text-decoration: none;
-	}
+  .index_imgtxt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-	.index_imgtxt{
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-	}
+  .index_layout {
+    display: flex;
+    flex-direction: column;
+    align-content: right;
+    width: 300px;
+    margin-left: auto;
+    /* fix senere, gør responsiv */
+    margin-right: 10px;
+    margin-bottom: 20%;
+    margin-top: 20px;
+  }
 
-	.index_layout{
-		display: flex;
-		flex-direction: column;
-		align-content: right;
-		width: 300px;
-		margin-left: auto;
-		/* fix senere, gør responsiv */
-	margin-right: 10px;
-		margin-bottom: 20%;
-		margin-top: 20px;
-	}
-
-	.main_img{
-		display: flex;
-		justify-content: right;
-		margin-top: 20px;
-	}
-
+  .main_img {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+  }
 </style>
