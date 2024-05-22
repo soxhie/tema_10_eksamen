@@ -17,15 +17,15 @@ const data = await fetch(
 return data.map((talent) => {
     return {
         params: { slug: talent.slug },
-        props: { myData: talent },
+        props: { talent },
     };
 });
 }
-const {myData} = Astro.props;
-console.log(myData)
+const { talent } = Astro.props;
+console.log(talent)
 ---
 
-<Skelet title={myData.name}>
+<Skelet title={talent.name}>
    <div class="artist_grid">
                 <div class="side_bar">
                     <div class="cross_info">
@@ -38,19 +38,13 @@ console.log(myData)
                     </div>
                     <div class="info">
                         <div>
-                        <h2>Alga</h2>
-                        <p>Copenhagen-based electropop duo alga playfully shows what it feels and sounds like when hard-hitting productions meet heartfelt melodies. Inspired by genres such as R&B, Pop, D&B and UK Garage, their uncompromising sound bridges experimental instrumentation and catchy hooks.
-alga is the name of the collaboration between Alberte Silberbrandt and Gabriel Blachmann. With the release of their debut EP 'Don't Buy Me Flowers', the duo has been named one of the most promising upcoming acts in Denmark.</p>
+                        <h2>{talent.name}</h2>
+                        <p>{talent.about}</p>
 </div>
                     </div>
                 </div>
             <div class="open_tab">
                 <div class="gallery">
-                     {
-      data.map((name) => {
-        return <GalleryCarrousel data={name} />;
-      })
-    }
                  </div>
                   <div class="cross_gallery_txt">
                         <div>

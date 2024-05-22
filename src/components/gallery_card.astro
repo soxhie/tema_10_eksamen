@@ -1,13 +1,19 @@
 ---
+const { gallery, gallery_txt } = Astro.props;
 ---
 <div class="talent_card">
-   <img src="/imgs/kealin_grey.jpg" alt="artist"/> 
-   <p class=".p_small">01 / Alga</p>
+   <img src={gallery[0]} alt="artist"/> 
+   <p class=".p_small">{gallery_txt[0]}</p>
 </div>
+
 <style>
     img{
         width: 270px;
         height: auto;
         object-fit: cover;
     }
+    /*<div class="talent_card">
+   <img src="/imgs/kealin_grey.jpg" alt="artist"/> 
+   <p class=".p_small">01 / Alga</p>
+</div>*/
 </style>

@@ -17,7 +17,7 @@ console.log(data);
 <div class="carousel">
  {
     data.map((data) => {
-      return <TalentCard data={data} link={"/talent_singleview/" + data.slug} />;
+      return <TalentCard data={data} link={`talent/${data.slug}`} />;
     })
   }
 </div>
