@@ -39,7 +39,21 @@ console.log(talent)
                         <div>
                         <h2>{talent.name}</h2>
                         <p>{talent.about}</p>
-</div>
+                        </div>
+                        <div>
+                            <div>
+                            <h2>Management</h2>
+                            <p>Coco Gaston</p>
+                            </div>
+                            <div>
+                            <h2>Booking & Live</h2>
+                            <p>Hanne Bjerringfelt</p>
+                            </div>
+                        </div>
+                        <div class="socials">
+                            <img class="ikon" src="/imgs/instalogo.svg" alt="insta"/>
+                            <img class="fb_ikon" src="/imgs/facebooklogo.svg" alt="facebook"/> 
+                        </div>
                     </div>
                 </div>
             <div class="open_tab">
@@ -183,7 +197,26 @@ display: none;
     img.cross_gallery{
         max-width: 35px;
     }
-
+    .info.change{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+ .side_bar.change{
+        border-right: 1px solid #1e1e1e;
+        display: block;
+        padding: 20px 20px;
+    }
+.ikon{
+    max-width: 100px;
+}
+.fb_ikon{
+   max-width: 26px; 
+}
+.socials{
+    gap: 0px;
+    display: flex;
+}
 </style>
 <script>
 const cross = document.querySelector(".cross");
@@ -194,6 +227,9 @@ const crossinfo = document.querySelector(".cross_info");
 const opentab = document.querySelector(".open_tab");
 const crossgallerytext = document.querySelector(".cross_gallery_txt");
 const crossgallery = document.querySelector(".cross_gallery");
+const info = document.querySelector(".info");
+const sidebar = document.querySelector(".side_bar");
+
 
 cross.addEventListener("click", open);
 sidetext.addEventListener("click", open);
@@ -207,5 +243,7 @@ crossinfo.classList.toggle("change");
 opentab.classList.toggle("change");
 crossgallerytext.classList.toggle("change");
 crossgallery.classList.toggle("change");
+info.classList.toggle("change");
+sidebar.classList.toggle("change");
 }
 </script>
