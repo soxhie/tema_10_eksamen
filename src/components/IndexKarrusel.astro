@@ -1,50 +1,74 @@
 ---
 import "../styles/generel.css";
+const { data, link } = Astro.props;
 
+const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
+  method: "GET",
+  headers: {
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+  },
+}).then((res) => res.json());
 ---
-<div class="small_imgs">
-<div class="karrusel">
-	<img id="1" src="imgs/alberte.png" alt="">
-	<img id="2" src="imgs/alga_1.png" alt="">
-	<img id="3" src="imgs/guldlokk.png" alt="">
-	<img id="4" src="imgs/alga_2.png" alt="">
-	<img id="5" src="imgs/gabriel.png" alt="">
-	<img id="6" src="imgs/alga_3.png" alt="">
-	<img id="7" src="imgs/alga.png" alt="">
-	<img id="8" src="imgs/alga_4.png" alt="">
-	
-	<!-- evt giv hvert lille bilelde et id tilsvarende dens id i supabase, derefter js if click ændre href til stort billede til tilsvarende id (spørg peter???) -->
-</div>
-</div>
+
+<section>
+  <div class="big_img_container">
+    <img src={indexData[0].index_pictures} alt={indexData[0].index_headline} />
+    <p class="img_title">{indexData[0].index_headline}</p>
+  </div>
+  <div class="karrusel">
+    {
+      indexData.map((data) => {
+        return <img src={data.index_pictures} alt={data.index_headline} />;
+      })
+    }
+  </div>
+  <script>
+    window.addEventListener("DOMContentLoaded", init);
+
+    function init() {
+      let karruselImages = document.querySelectorAll(".karrusel img");
+      let bigImage = document.querySelector(".big_img_container img");
+      let imgImageTitle = document.querySelector(".img_title");
+      console.log("karruselImages", karruselImages);
+
+      karruselImages.forEach((img) => {
+        img.addEventListener("mousedown", onImageDown);
+      });
+
+      function onImageDown(event) {
+        console.log(event);
+        bigImage.src = event.target.src;
+        imgImageTitle.textContent = event.target.alt;
+      }
+    }
+  </script>
+</section>
 
 <style>
+  .big_img_container {
+    position: relative;
+    width: 80%;
+  }
 
-.karrusel{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	overflow: scroll;
-		/* hides scrollbar */
-  	scrollbar-width: none;	
-}
+  .big_img_container img {
+    width: 100%;
+  }
 
+  .karrusel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: scroll;
+    /* hides scrollbar */
+    scrollbar-width: none;
+  }
 
-.karrusel{
-	display: flex;
-	flex-direction: row;
-		justify-content: space-between;
-		overflow: scroll;
-		
-}
+  .karrusel img {
+    width: 100px;
+  }
 
-
-img{
-	
-	margin: 0 3px;	
-  object-fit: cover;
-  width: 100px;
-  height: 100px;
-
-}
-
+  img {
+    object-fit: cover;
+  }
 </style>
