@@ -93,17 +93,20 @@ main {
   margin-top: 100px;
 }
 header {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   position: fixed;
   width: 100%;
   margin: 0;
   left: 0;
   top: 0;
+  z-index: 10;
   background-color: #f1eee8;
   border-bottom: 1px solid #1e1e1e;
 }
 footer {
   padding-top: 10px;
+  padding-bottom: 10px;
   position: fixed;
   width: 100%;
   /*margin: 0; /*skal tilføjes generel css*/
