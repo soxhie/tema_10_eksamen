@@ -26,17 +26,17 @@ const { myData } = Astro.props;
     <h3>{myData.type}</h3>
     <h3>{myData.date}</h3>
   </div>
-  <img src="#" alt="" />
-  <img src="#" alt="" />
+  <img src={myData.pictures[0]} alt="" />
+  <img src={myData.pictures[1]} alt="" />
 
   <h2>{myData.headline}</h2>
   <p>{myData.text}</p>
 
-  <img src="#" alt="" />
-  <img src="#" alt="" />
-  <img src="#" alt="" />
-  <img src="#" alt="" />
-  <img src="#" alt="" />
+  <img src={myData.pictures[2]} alt="" />
+  <img src={myData.pictures[3]} alt="" />
+  <img src={myData.pictures[4]} alt="" />
+  <img src={myData.pictures[5]} alt="" />
+  <img src={myData.pictures[6]} alt="" />
 </Skelet>
 
 <style>
