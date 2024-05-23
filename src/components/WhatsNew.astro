@@ -14,16 +14,13 @@ const { data } = Astro.props;
       <p>{data.text}</p>
       <a class="read_more" href=`whats_new/${data.slug}`>read more ></a>
     </div>
-    <img src={data.index_pictures} alt="Event picture" />
+    <div class="img_grid">
+      <img src={data.index_pictures} alt={data.index_headline} />
+    </div>
   </div>
 </article>
 
 <style>
-  .event_grid {
-    display: flex;
-    flex-direction: row;
-  }
-
   .menu {
     text-align: left;
     border-bottom: 0.5px solid #1e1e1e;
@@ -36,6 +33,12 @@ const { data } = Astro.props;
     display: flex;
   }
   img {
-    width: 100%;
+    width: 70%;
+
+    margin-top: 40px;
+  }
+  .img_grid {
+    display: flex;
+    justify-content: center;
   }
 </style>
