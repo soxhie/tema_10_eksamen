@@ -57,6 +57,13 @@ h3 {
   text-decoration: underline;
 }
 
+.menu {
+  font-family: "Work Sans";
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--sort);
+}
+
 /* desktop */
 @media (min-width: 800px) {
   h1 {
@@ -85,7 +92,7 @@ h3 {
 
 /* mobile */
 body {
-  margin: 0;
+  margin: 20px;
   background-color: var(--baggrund);
 }
 main {

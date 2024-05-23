@@ -1,0 +1,64 @@
+---
+import WhatsNew from "../components/WhatsNew.astro";
+import Skelet from "../layout/skelet.astro";
+
+const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
+  method: "GET",
+  headers: {
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+  },
+}).then((res) => res.json());
+---
+
+<Skelet>
+  <h1>What’s New?</h1>
+  <div class="filtrering">
+    <p class="filter_all">All</p>
+    <p class="filter_events">Events</p>
+    <p class="filter_news">News</p>
+    <p class="filter_recommendations">Recommendations</p>
+  </div>
+  <section class="posts">
+    {
+      data.map((post) => {
+        return <WhatsNew data={post} />;
+      })
+    }
+  </section>
+</Skelet>
+
+<style>
+  .filtrering {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+  }
+
+  p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  body {
+    margin: 20px;
+  }
+</style>
+
+<script>
+  const all = document.querySelector(".filter_all");
+  const events = document.querySelector(".filter_events");
+  const news = document.querySelector(".filter_news");
+  const recommendations = document.querySelector(".filter_recommendations");
+
+  window.addEventListener("load", sidenLoades);
+  function sidenLoades() {
+    events.addEventListener("click", eventFiltering);
+    news.addEventListener("click", eventFiltering);
+    recommendations.addEventListener("click", eventFiltering);
+  }
+
+  function eventFiltering() {
+    // enten if else, ellers Conditional rendering I Astro (??)
+  }
+</script>
