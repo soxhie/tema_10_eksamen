@@ -8,21 +8,26 @@ const { data } = Astro.props;
   <div class="date_div">
     <p class="menu">{data.date}</p>
   </div>
-  <div class="event_grid">
-    <div class="event_tekst">
-      <h2>{data.headline}</h2>
-      <p>{data.text}</p>
-      <a class="read_more" href=`whats_new/${data.slug}`>read more ></a>
-    </div>
-    <div class="img_grid">
-      <img src={data.index_pictures} alt={data.index_headline} />
+  <div class="margin">
+    <div class="event_grid">
+      <div class="event_tekst">
+        <h2>{data.headline}</h2>
+        <p>{data.text}</p>
+        <a class="read_more" href=`whats_new/${data.slug}`>read more ></a>
+      </div>
+      <div class="img_grid">
+        <img src={data.index_pictures} alt={data.index_headline} />
+      </div>
     </div>
   </div>
 </article>
 
 <style>
+  .margin {
+    margin: 20px;
+  }
   .menu {
-    text-align: left;
+    text-align: right;
     border-bottom: 0.5px solid #1e1e1e;
     width: 60%;
     align-self: flex-end;
