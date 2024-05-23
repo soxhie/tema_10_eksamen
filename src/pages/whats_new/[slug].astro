@@ -1,0 +1,48 @@
+---
+import Skelet from "../../layout/skelet.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+    },
+  }).then((response) => response.json());
+  return data.map((post) => {
+    return {
+      // liste over sider der skal genereres
+      params: { slug: post.slug },
+      //   sender props med ned til undersiden
+      props: { myData: post },
+    };
+  });
+}
+const { myData } = Astro.props;
+---
+
+<Skelet>
+  <div class="topbar">
+    <h3>{myData.type}</h3>
+    <h3>{myData.date}</h3>
+  </div>
+  <img src={myData.pictures[0]} alt="" />
+  <img src={myData.pictures[1]} alt="" />
+
+  <h2>{myData.headline}</h2>
+  <p>{myData.text}</p>
+
+  <img src={myData.pictures[2]} alt="" />
+  <img src={myData.pictures[3]} alt="" />
+  <img src={myData.pictures[4]} alt="" />
+  <img src={myData.pictures[5]} alt="" />
+  <img src={myData.pictures[6]} alt="" />
+</Skelet>
+
+<style>
+  .topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+</style>
