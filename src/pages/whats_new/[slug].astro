@@ -1,4 +1,6 @@
 ---
+import Skelet from "../../layout/skelet.astro";
+
 export async function getStaticPaths() {
   const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
     method: "GET",
@@ -12,8 +14,35 @@ export async function getStaticPaths() {
       // liste over sider der skal genereres
       params: { slug: post.slug },
       //   sender props med ned til undersiden
-      props: { post },
+      props: { myData: post },
     };
   });
 }
+const { myData } = Astro.props;
 ---
+
+<Skelet>
+  <div class="topbar">
+    <h3>{myData.type}</h3>
+    <h3>{myData.date}</h3>
+  </div>
+  <img src="#" alt="" />
+  <img src="#" alt="" />
+
+  <h2>{myData.headline}</h2>
+  <p>{myData.text}</p>
+
+  <img src="#" alt="" />
+  <img src="#" alt="" />
+  <img src="#" alt="" />
+  <img src="#" alt="" />
+  <img src="#" alt="" />
+</Skelet>
+
+<style>
+  .topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+</style>
