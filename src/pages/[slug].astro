@@ -45,11 +45,11 @@ console.log(talent)
                         <div>
                             <div>
                             <h2>Management</h2>
-                            <p>Coco Gaston</p>
+                            <p>Coco Gaston: Coco@alpha.com</p>
                             </div>
                             <div>
                             <h2>Booking & Live</h2>
-                            <p>Hanne Bjerringfelt</p>
+                            <p>Hanne Bjerringfelt: Hanne@alpha.com</p>
                             </div>
                         </div>
                         <div class="socials">
@@ -64,19 +64,19 @@ console.log(talent)
   <div class="carousel">
                <div class="gallery_card">
                     <img src={talent.gallery[0]} alt={talent.gallery_txt[0]}/> 
-                    <p class=".p_small">{talent.gallery_txt[0]}</p>
+                    <h3 class=".p_small">{talent.gallery_txt[0]}</h3>
                 </div>
                 <div class="gallery_card">
                     <img src={talent.gallery[1]} alt={talent.gallery_txt[1]}/> 
-                    <p class=".p_small">{talent.gallery_txt[1]}</p>
+                    <h3 class=".p_small">{talent.gallery_txt[1]}</h3>
                 </div>
                 <div class="gallery_card">
                     <img src={talent.gallery[2]} alt={talent.gallery_txt[2]}/> 
-                    <p class=".p_small">{talent.gallery_txt[2]}</p>
+                    <h3 class=".p_small">{talent.gallery_txt[2]}</h3>
                 </div>
                 <div class="gallery_card">
                     <img src={talent.gallery[3]} alt={talent.gallery_txt[3]}/> 
-                    <p class=".p_small">{talent.gallery_txt[3]}</p>
+                    <h3 class=".p_small">{talent.gallery_txt[3]}</h3>
                 </div>
             </div>
                  </div>
@@ -94,11 +94,16 @@ console.log(talent)
         </main>
 </Skelet>
 <style>
+    h2{
+        line-height: 20px;
+    }
     .line{
     border: 0.5px solid #1e1e1e;
     width: 100%;
     position: fixed;
-    bottom: 34px;
+    bottom: 0;
+    background-color: #f1eee8;
+    height: 30px;
     }
     .gallery img{
         width: 270px;
@@ -134,10 +139,10 @@ console.log(talent)
         grid-template-columns: 1fr 4fr;
         height: 100vh;
         transition: 1s;
-        border-top: 1px solid #1e1e1e;
+        border-top: 0.5px solid #1e1e1e;
     }
     .side_bar{
-        border-right: 1px solid #1e1e1e;
+        border-right: 0.5px solid #1e1e1e;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -234,11 +239,18 @@ display: none;
     gap: 7px;
     display: flex;
 }
+footer{
+background-color: #f1eee8;
+}
 
 @media (min-width: 800px) {
+    h2{
+        line-height: 0px;
+        margin-top: 20px;
+    }
        .gallery img{
         width: auto;
-        height: 500px;
+        height: 450px;
         object-fit: cover;
     }
   .carousel {
@@ -269,7 +281,7 @@ display: none;
 
     }
     .line{
-    bottom: 45px;
+    height: 50px;
     }
 }
 </style>
