@@ -1,5 +1,6 @@
 ---
 import BurgerMenu from "../components/burger_menu.astro";
+import Skelet from "../layout/skelet.astro";
 import Footer from "../components/footer.astro";
 import "../styles/generel.css";
 import TalentCarousel from "../components/talent_carousel.astro";
@@ -13,29 +14,20 @@ const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talen
 
 console.log(data);
 ---
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <BurgerMenu/>
-    <main>
-      <h1>Talent</h1>
+<Skelet>
+        <h1>Talent</h1>
       <p>Discover our talent in music & related fields</p>
       <TalentCarousel />
-      <a href="talent_singleview.html">link</a>
-    </main>
-    <Footer />
-  </body>
-</html>
+</Skelet>
 
 <style>
-  main{
+  h1{
     margin-left: 20px;
+  }
+  p{
+    margin-left: 20px;
+  }
+  body{
+    margin: 0;
   }
 </style>

@@ -26,6 +26,7 @@ console.log(talent)
 
 <Skelet>
         <main>
+            <div class="line"></div>
             <div class="artist_grid">
                 <div class="side_bar">
                     <div class="cross_info">
@@ -89,10 +90,16 @@ console.log(talent)
                     </div>
             </div>
         </div>
-        <Arrow></Arrow>
+        <Arrow link="talent.html"></Arrow>
         </main>
 </Skelet>
 <style>
+    .line{
+    border: 0.5px solid #1e1e1e;
+    width: 100%;
+    position: fixed;
+    bottom: 34px;
+    }
     .gallery img{
         width: 270px;
         height: auto;
@@ -109,6 +116,7 @@ console.log(talent)
  }
     header{
         z-index: 100;
+        border-bottom: 0.5px solid #1e1e1e;
     }
     main{
         margin-left: 0;
@@ -126,6 +134,7 @@ console.log(talent)
         grid-template-columns: 1fr 4fr;
         height: 100vh;
         transition: 1s;
+        border-top: 1px solid #1e1e1e;
     }
     .side_bar{
         border-right: 1px solid #1e1e1e;
@@ -224,6 +233,44 @@ display: none;
 .socials{
     gap: 7px;
     display: flex;
+}
+
+@media (min-width: 800px) {
+       .gallery img{
+        width: auto;
+        height: 500px;
+        object-fit: cover;
+    }
+  .carousel {
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .gallery::-webkit-scrollbar {
+    display: none;
+  }
+.ikon{
+   max-width: 35px; 
+}
+.ikon_ig{
+   max-width: 37px;  
+}
+.socials{
+    gap: 7px;
+    display: flex;
+}
+ .artist_grid{
+    margin-top: 20px;
+
+    }
+    .line{
+    bottom: 45px;
+    }
 }
 </style>
 <script>

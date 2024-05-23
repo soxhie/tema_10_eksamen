@@ -6,9 +6,9 @@ const { data, link } = Astro.props
    <img src={data.picture} alt="artist"/> 
    <h2>{data.name}</h2>
    <div class="genre">
-   <p>{data.genre[0]}</p>
-   <p>{data.genre[1]}</p>
-   <p>{data.genre[2]}</p>
+   <h3>{data.genre[0]}</h3>
+   <h3>{data.genre[1]}</h3>
+   <h3>{data.genre[2]}</h3>
    </div>
 </div>
 </a>
@@ -37,4 +37,11 @@ const { data, link } = Astro.props
         object-position: 100% 0%; 
         transition: 8s;
     }
+    @media (min-width: 800px) {
+         img{
+        width: 320px;
+        height: 430px;
+    }
+ 
+}
 </style>
