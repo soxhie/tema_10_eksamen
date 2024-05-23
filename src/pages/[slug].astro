@@ -1,4 +1,5 @@
 ---
+import Arrow from "../components/arrow.astro";
 import Skelet from "../layout/skelet.astro";
 export async function getStaticPaths() {
 const data = await fetch(
@@ -61,19 +62,19 @@ console.log(talent)
                 <div class="gallery">
   <div class="carousel">
                <div class="gallery_card">
-                    <img src={talent.gallery[0]} alt="artist"/> 
+                    <img src={talent.gallery[0]} alt={talent.gallery_txt[0]}/> 
                     <p class=".p_small">{talent.gallery_txt[0]}</p>
                 </div>
                 <div class="gallery_card">
-                    <img src={talent.gallery[1]} alt="artist"/> 
+                    <img src={talent.gallery[1]} alt={talent.gallery_txt[1]}/> 
                     <p class=".p_small">{talent.gallery_txt[1]}</p>
                 </div>
                 <div class="gallery_card">
-                    <img src={talent.gallery[2]} alt="artist"/> 
+                    <img src={talent.gallery[2]} alt={talent.gallery_txt[2]}/> 
                     <p class=".p_small">{talent.gallery_txt[2]}</p>
                 </div>
                 <div class="gallery_card">
-                    <img src={talent.gallery[3]} alt="artist"/> 
+                    <img src={talent.gallery[3]} alt={talent.gallery_txt[3]}/> 
                     <p class=".p_small">{talent.gallery_txt[3]}</p>
                 </div>
             </div>
@@ -88,6 +89,7 @@ console.log(talent)
                     </div>
             </div>
         </div>
+        <Arrow></Arrow>
         </main>
 </Skelet>
 <style>
