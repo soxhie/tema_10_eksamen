@@ -13,7 +13,7 @@ console.log(data);
     <div class="event_tekst">
       <h2>{data.headline}</h2>
       <p>{data.text}</p>
-      <p class="read_more">read more ></p>
+      <a class="read_more" href=`whats_new/${data.slug}`>read more ></a>
     </div>
     <img src={data.pictures} alt="Event picture" />
   </div>
