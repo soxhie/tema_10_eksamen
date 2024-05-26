@@ -18,7 +18,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 <Skelet>
   <div class="index_grid">
     <div class="title_og_img">
-      <div class="overskrift">
+      <div class="overskrift_mobile">
         <h2>ALPHA</h2>
         <h3>Management & Artist Services</h3>
       </div>
@@ -34,6 +34,10 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       </div>
       <a href="whats_new.html" class="read_more">Read More ></a>
     </div>
+  </div>
+  <div class="overskrift_desktop">
+    <h2>ALPHA</h2>
+    <h3>Management & Artist Services</h3>
   </div>
 
   <div class="karrusel">
@@ -51,7 +55,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
   function init() {
     let karruselImages = document.querySelectorAll(".karrusel img");
     let bigImage = document.querySelector(".big_img_container img");
-    let imgImageTitle = document.querySelector(".imgtxt");
+    let bigImageTitle = document.querySelector(".imgtxt");
     console.log("karruselImages", karruselImages);
 
     karruselImages.forEach((img) => {
@@ -61,12 +65,16 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     function onImageDown(event) {
       console.log(event);
       bigImage.src = event.target.src;
-      imgImageTitle.textContent = event.target.alt;
+      bigImageTitle.textContent = event.target.alt;
+      bigImageTitle.classList.add("h3_desktop");
     }
   }
 </script>
 
 <style>
+  .overskrift_desktop {
+    display: none;
+  }
   .big_img_container {
     position: relative;
     width: 100%;
@@ -83,7 +91,6 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     width: 274px;
     height: 393px;
     object-fit: cover;
-    object-position: 25% 25%;
   }
 
   .karrusel {
@@ -116,7 +123,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     text-decoration: none;
   }
 
-  .overskrift {
+  .overskrift_mobile {
     margin-top: 10px;
   }
 
@@ -148,5 +155,40 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     display: flex;
     justify-content: space-between;
     margin-left: initial;
+  }
+
+  /* desktop view */
+  @media (min-width: 800px) {
+    .overskrift_mobile {
+      display: none;
+    }
+    .overskrift_desktop {
+      display: block;
+      margin-bottom: 10px;
+      margin-left: 20px;
+    }
+    .big_img_container {
+      display: flex;
+      justify-content: flex-end;
+      width: 346px;
+      height: 414px;
+      margin-right: 200px;
+    }
+    .big_img_container img {
+      width: 346px;
+    }
+
+    .index_grid {
+      margin-right: 12%;
+      margin-top: 5%;
+      margin-bottom: 30px;
+    }
+    .all_txt {
+      width: 346px;
+    }
+
+    .karrusel {
+      margin-top: 20px;
+    }
   }
 </style>
