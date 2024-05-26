@@ -130,6 +130,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 
   img {
     object-fit: cover;
+    cursor: pointer;
   }
   * {
     margin: 0;
@@ -206,10 +207,11 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     .karrusel {
       margin-top: 20px;
     }
-    /* .karrusel img {
-      object-fit: cover;
-      width: 100px;
-      height: 100px;
-    } */
+    .karrusel img {
+      filter: grayscale(100%);
+    }
+    .karrusel img:hover {
+      filter: grayscale(0%);
+    }
   }
 </style>
