@@ -26,17 +26,29 @@ const { myData } = Astro.props;
     <h3>{myData.type}</h3>
     <h3>{myData.date}</h3>
   </div>
-  <img src={myData.pictures[0]} alt="" />
-  <img src={myData.pictures[1]} alt="" />
+  <div class="grid_whatsnew">
+    <img class="img_1" src={myData.pictures[0]} alt={myData.index_headline[0]} />
+    <img class="img_2" src={myData.pictures[1]} alt={myData.index_headline[1]} />
 
-  <h2>{myData.headline}</h2>
-  <p>{myData.text}</p>
-
-  <img src={myData.pictures[2]} alt="" />
-  <img src={myData.pictures[3]} alt="" />
-  <img src={myData.pictures[4]} alt="" />
-  <img src={myData.pictures[5]} alt="" />
-  <img src={myData.pictures[6]} alt="" />
+    <div class="paragraf_1">
+      <h2>{myData.headline}</h2>
+      <p>{myData.text[0]}</p>
+    </div>
+  </div>
+  <div class="p2_3img">
+    <div class="paragraf_2">
+      <p>{myData.text[1]}</p>
+    </div>
+    <div class="raekke_img">
+      <img src={myData.pictures[2]} alt={myData.index_headline[2]} />
+      <img src={myData.pictures[3]} alt={myData.index_headline[3]} />
+      <img src={myData.pictures[4]} alt={myData.index_headline[4]} />
+    </div>
+  </div>
+  <div class="img_6">
+    <img class="img_6_big" src={myData.pictures[5]} alt={myData.index_headline[5]} />
+    <img class="img_6_small" src={myData.pictures[5]} alt={myData.index_headline[5]} />
+  </div>
 </Skelet>
 
 <style>
@@ -45,4 +57,97 @@ const { myData } = Astro.props;
     flex-direction: row;
     justify-content: space-between;
   }
+
+  img {
+    width: 100%;
+  }
+
+  .img_1 {
+    grid-column: 1/3;
+    width: 346px;
+    height: 149px;
+    object-fit: cover;
+  }
+  .img_2 {
+    position: absolute;
+    left: 23px;
+    top: 28%;
+    width: 103px;
+    height: 387px;
+    object-fit: cover;
+    object-position: 71%;
+  }
+
+  .grid_whatsnew {
+    display: grid;
+    grid-template-columns: 1fr 60%;
+    grid-template-rows: 1fr;
+  }
+
+  .paragraf_1 {
+    grid-column: 2;
+    grid-row: 2;
+    margin-right: 25px;
+  }
+
+  .paragraf_2 {
+    width: 45%;
+    margin-left: 20px;
+    margin-top: 20px;
+    align-self: center;
+  }
+
+  .raekke_img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  .raekke_img img {
+    margin: 10px 10px;
+    width: 90%;
+  }
+
+  .p2_3img {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .img_6 {
+    margin: 20px 0;
+  }
+
+  .img_6_big {
+    margin: 0 20px;
+  }
+  .img_6_small {
+    position: absolute;
+    bottom: -49%;
+    width: 40%;
+    left: 3%;
+  }
+
+  /* .img_1 {
+    margin-bottom: 30%;
+  }
+  .img_2 {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 30%;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  h2,
+  p {
+    justify-content: end;
+  } */
 </style>
